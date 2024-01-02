@@ -12,4 +12,4 @@ To be completed
 
 ## License
 
-Planr Pro is licensed under the MIT License.
+BizECard is licensed under the MIT License.
