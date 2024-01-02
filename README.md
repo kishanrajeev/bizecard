@@ -4,13 +4,12 @@ A virtual e-card manager.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+To be completed
 
-A few resources to get you started if this is your first Flutter project:
+## Contact
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+* [Kishan Rajeev](https://kishan.knowledgeplatter.com/)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## License
+
+Planr Pro is licensed under the MIT License.
