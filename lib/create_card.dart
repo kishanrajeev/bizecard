@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'app_colors.dart'; // Import the color constants
 
 class CreateCardPage extends StatelessWidget {
   const CreateCardPage({super.key, required this.title});
@@ -9,7 +10,7 @@ class CreateCardPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: AppColors.appBarBackground,
         title: Text(title),
       ),
       body: Center(

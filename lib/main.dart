@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'app_colors.dart'; // Import the color constants
 
 import 'create_card.dart';
 
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
 
@@ -39,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[500], //brown[200]/[300]
+        backgroundColor: AppColors.appBarBackground,
         title: Text(widget.title),
       ),
       body: Center(
@@ -57,10 +58,9 @@ class _MyHomePageState extends State<MyHomePage> {
           MaterialPageRoute(builder: (context) => const CreateCardPage(title: 'New Card')),
         ),
         tooltip: 'Create new Card',
-        backgroundColor: Colors.blueGrey[400], // Set the foregroundColor to teal
-        child: const Icon(Icons.add),
+        backgroundColor: AppColors.floatingActionButtonBackground,
+        child: const Icon(Icons.add, color: AppColors.floatingActionButtonIcon),
       ),
     );
-
   }
 }
