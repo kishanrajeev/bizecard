@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'app_colors.dart'; // Import the color constants
-
 import 'create_card.dart';
 
 void main() => runApp(const MyApp());
@@ -32,34 +30,49 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  List<String> _selectedImages = [];
 
-  void _incrementCounter() => setState(() => _counter++);
+  void _updateSelectedImage({String imagePath = ''}) {
+    setState(() {
+      _selectedImages.insert(0, imagePath);
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: AppColors.appBarBackground,
+        backgroundColor: Colors.blueGrey[500],
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text('You have pushed the button this many times:'),
-            Text('$_counter', style: Theme.of(context).textTheme.headlineMedium),
-          ],
-        ),
+      body: ListView.builder(
+        itemCount: _selectedImages.length,
+        itemBuilder: (context, index) {
+          return Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Card(
+              child: Image.asset(
+                _selectedImages[index],
+                fit: BoxFit.cover,
+              ),
+            ),
+          );
+        },
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => const CreateCardPage(title: 'New Card')),
-        ),
+        onPressed: () async {
+          var result = await Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => const CreateCardPage(title: 'New Card')),
+          );
+
+          if (result != null) {
+            _updateSelectedImage(imagePath: result);
+          }
+        },
         tooltip: 'Create new Card',
-        backgroundColor: AppColors.floatingActionButtonBackground,
-        child: const Icon(Icons.add, color: AppColors.floatingActionButtonIcon),
+        backgroundColor: Colors.blueGrey[400],
+        child: const Icon(Icons.add),
       ),
     );
   }
